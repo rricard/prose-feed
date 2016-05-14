@@ -1,0 +1,9 @@
+[libs]
+flow/definitions
+
+[ignore]
+.*duplicate-keys\.json
+.*fbjs.*
+
+[options]
+esproposal.class_instance_fields=enable
