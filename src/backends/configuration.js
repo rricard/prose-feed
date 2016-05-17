@@ -62,7 +62,11 @@ case "test":
   }
   break
 case "production":
-  envDefaults = {}
+  envDefaults = {
+    db: {
+      client: "pg",
+    },
+  }
   break
 }
 
