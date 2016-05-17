@@ -4,6 +4,7 @@
   "description": "React, Relay & GraphQL-powered isomorphic blog engine",
   "main": "lib/",
   "scripts": {
+    "postinstall": "mkdir -p tmp",
     "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
@@ -48,9 +49,12 @@
     "graphql-relay": "^0.4.1",
     "ioredis": "^1.15.1",
     "knex": "^0.10.0",
+    "mysql": "^2.10.2",
     "nconf": "^0.8.4",
+    "pg": "^4.5.5",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
-    "react-relay": "^0.8.1"
+    "react-relay": "^0.8.1",
+    "sqlite3": "^3.1.4"
   }
 }

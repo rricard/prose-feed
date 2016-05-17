@@ -56,7 +56,7 @@ case "test":
       conn: {
         user: "prosefeedtest",
         database: "prosefeedtest",
-        filename: "./tmp/prosefeed.sqlite",
+        filename: "./tmp/prosefeedtest.sqlite",
       },
     },
   }

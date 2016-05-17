@@ -34,3 +34,6 @@ node_modules
 
 # Babel build files
 lib
+
+# Temporary files
+tmp

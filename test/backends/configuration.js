@@ -11,6 +11,6 @@ describe("Configuration Backend", () => {
   it("should set to test db configuration", () => {
     assert.equal(config.get("db:conn:user"), "prosefeedtest")
     assert.equal(config.get("db:conn:database"), "prosefeedtest")
-    assert.equal(config.get("db:conn:filename"), "./tmp/prosefeed.sqlite")
+    assert.equal(config.get("db:conn:filename"), "./tmp/prosefeedtest.sqlite")
   })
 })
