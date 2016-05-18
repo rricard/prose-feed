@@ -59,6 +59,14 @@ class Post extends orm.Model {
     return new Post()/*.orderBy("-updated_at")*/.fetchAll()
     .then(coll => coll.models)
   }
+
+  // ### Single post retreiver (by id)
+  //
+  // - `id` - the id of the post to retreive
+  // - **Returns** the post
+  static getById(id: number): Promise<Post> {
+    return new Post({id}).fetch()
+  }
 }
 
 // ### Table setup
@@ -73,6 +81,7 @@ Post = GraphQuill.createType(Post, {
   name: "Post",
   description: "Represents an authored post in the blog",
   idField: "id",
+  resolveById: Post.getById,
 }, {
   title: {
     description: "The title of the publication",
@@ -89,9 +98,11 @@ Post = GraphQuill.createType(Post, {
 })
 
 // As well as for its static methods that be considered as root queries
-Post.allPosts = GraphQuill.createRootQueryConnection(Post.allPosts, {
-  name: "allPosts",
-  connectedType: () => Post,
-})
+Post.allPosts = GraphQuill.createRootQueryConnection(
+  Post.allPosts, "allPosts", {
+    description: "All of the posts",
+    connectedType: () => Post,
+  }
+)
 
 export default Post
