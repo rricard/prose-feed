@@ -30,8 +30,8 @@ export function createQueryBuilder(
   searchPath?: string,
   migrationsDir?: string = path.join(__dirname, "../migrations"),
   seedsDir?: string = path.join(__dirname, "../seeds")
-): [mixed, Promise] {
-  const knex: mixed = createKnex({
+): [any, Promise] {
+  const knex = createKnex({
     client: client,
     connection: connection,
     searchPath: searchPath,
@@ -55,7 +55,7 @@ export function createQueryBuilder(
 //   - a new query builder (with pooled connections)
 //   - a promise to the same query builder **after** migration and seed.
 //     You can't expect anything setted up before this promise returns!
-export function createQueryBuilderFromConfiguration(): [mixed, Promise] {
+export function createQueryBuilderFromConfiguration(): [any, Promise] {
   return createQueryBuilder(
     config.get("db:client"),
     config.get("db:conn"),
