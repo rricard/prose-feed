@@ -16,7 +16,9 @@ import defaultQb from "./query-builder"
 // - `qb` - the knex query builder to wrap
 // - **Returns** a bookshelf orm
 export function createObjectRelationalMapper(qb: any): any {
-  return createBookshelf(qb)
+  let bookshelf = createBookshelf(qb)
+  bookshelf.plugin('virtuals')
+  return bookshelf
 }
 
 // ## Pull from existing qb defaults

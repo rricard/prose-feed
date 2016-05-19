@@ -3,6 +3,7 @@
 import GraphQuill from "graph-quill"
 
 import Post from "../models/Post"
+import MarkdownContent from "../models/content/MarkdownContent"
 
 // # GraphQL Schema
 //
@@ -10,6 +11,8 @@ import Post from "../models/Post"
 // magic!
 export default GraphQuill.createSchema([
   Post,
+  MarkdownContent,
 ], [
   Post.allPosts,
+  Post.allPublishedPosts,
 ])
