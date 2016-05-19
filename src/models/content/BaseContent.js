@@ -1,6 +1,5 @@
 /* @flow */
 
-import GraphQuill from "graph-quill"
 import {
   GraphQLInterfaceType,
   GraphQLString,
