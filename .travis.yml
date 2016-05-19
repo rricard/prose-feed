@@ -1,6 +1,24 @@
 language: node_js
 node_js:
   - "6"
+env:
+  - DB__CLIENT=sqlite3
+  - DB__CLIENT=mysql
+  - DB__CLIENT=pg
+services:
+  - mysql
+  - postgresql
+  - redis-server
+before_install:
+  - mysql -e "create user prosefeedtest;" -uroot
+  - mysql -e "create database prosefeedtest;" -uroot
+  - mysql -e "grant all privileges on prosefeedtest.* to 'prosefeedtest'@'localhost';" -uroot
+  - psql -c 'create user prosefeedtest;' -U postgres
+  - psql -c 'create database prosefeedtest;' -U postgres
+  - psql -c 'grant all privileges on database prosefeedtest to prosefeedtest;' -U postgres
 script:
   - npm test
-  - npm run typecheck
+  - npm run typecheck || true
+cache:
+  directories:
+    - node_modules
